@@ -2,8 +2,6 @@ import os
 import sys
 import re
 
-# Part 1: 2633    |   Part 2: 1936
-
 def checkHorizontal(fullWordSeach):
     total=0
     for line in fullWordSeach:
