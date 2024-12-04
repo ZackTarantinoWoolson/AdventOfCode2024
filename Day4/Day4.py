@@ -11,11 +11,7 @@ def checkHorizontal(fullWordSeach):
 
 def checkVertical(fullWordSeach):
     rotated = list(zip(*fullWordSeach[::-1]))
-    total=0
-    for line in rotated:
-        total+=len(re.findall("XMAS",''.join(line)))
-        total+=len(re.findall("SAMX",''.join(line)))
-    return total
+    return checkHorizontal(rotated)
 
 def getDiagonalMatrix(n, m, li):
     row=[]
@@ -56,13 +52,8 @@ def getDiagonalMatrix(n, m, li):
 def checkDiagonal(fullWordSeach):
     total=0
     mat1,mat2=getDiagonalMatrix(len(fullWordSeach),len(fullWordSeach),fullWordSeach)
-    for line in mat1:
-        total+=len(re.findall("XMAS",''.join(line)))
-        total+=len(re.findall("SAMX",''.join(line)))
-
-    for line in mat2:
-        total+=len(re.findall("XMAS",''.join(line)))
-        total+=len(re.findall("SAMX",''.join(line)))
+    total+=checkHorizontal(mat1)
+    total+=checkHorizontal(mat2)
     
     return total
 
