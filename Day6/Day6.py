@@ -2,6 +2,9 @@ import os
 import sys
 
 
+# Part 1: 5531
+# Part 2: 2165
+
 def findStartingArea(map):
     for y,r in enumerate(map):
         if "^" in r:
@@ -54,16 +57,13 @@ def walkUntilObject(map,currentPos,direction):
             if map[currentPos[1]][x] == "#":
                 break
             else:
-                if x==currentPos[0] or ([x,currentPos[1]] in distinctPositions): continue
+                if x==currentPos[0]: continue
                 distinctPositions.append([x,currentPos[1]])
                 map[currentPos[1]][x]="<"
     
 
 
     return currentPos
-
-part1=0
-part2=0
 
 map=[]
 distinctPositions=[]
@@ -83,7 +83,7 @@ direction="up"
 
 run=True
 while run:
-    print(run, direction)
+    # print(run, direction)
    
     # print(distinctPositions[-1],direction)
     try: 
@@ -95,12 +95,15 @@ while run:
             run=False
     except:
         break
-    for m in map:
-        print(''.join(m))
+    # for m in map:
+    #     print(''.join(m))
     direction=nextDirection(direction)
     # print(distinctPositions)
     # break
-print("\n\n\n ====END MAP==== \n\n\n")
+
+
+
+print("\n\n ====END MAP==== \n\n")
 map[start[1]][start[0]]="?"
 for m in map:
     print(''.join(m))
@@ -117,4 +120,4 @@ for i,d in enumerate(distinctPositions):
 uniqSet=set(stringifyList)
 
 
-print("Part 1:",len(uniqSet), "   |   Part 2:",part2)
+print("Part 1:",len(uniqSet))
