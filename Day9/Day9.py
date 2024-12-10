@@ -23,16 +23,11 @@ def createDict(inputList):
     printLine=""
     dataArray=[]
     for id in files:
-        # print(id,files[id]["block"],files[id]["freespace"])
         printLine+=""+(str(id)*files[id]["block"])+"."*files[id]["freespace"]
         for _ in range(files[id]["block"]):
             dataArray.append(id)
         for _ in range(files[id]["freespace"]):
             dataArray.append(".")
-
-    # print(printLine)
-    # print(dataArray)
-
 
     return files,dataArray
 
